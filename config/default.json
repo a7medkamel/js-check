@@ -1,0 +1,9 @@
+{
+  "cwd"   : "",
+  "glob"  : [
+      "**/*.js"
+  ],
+  "ignore"  : [
+    "**/node_modules/**/*.js"
+  ]
+}

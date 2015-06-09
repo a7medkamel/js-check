@@ -1,0 +1,27 @@
+{
+  "name": "js-parse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "akamel",
+  "license": "ISC",
+  "dependencies": {
+    "acorn": "^1.1.0",
+    "bluebird": "^2.9.25",
+    "chai": "^2.3.0",
+    "chalk": "^1.0.0",
+    "cli-color": "^1.0.0",
+    "cli-table": "^0.3.1",
+    "config": "^1.14.0",
+    "fast-csv": "^0.6.0",
+    "glob": "^5.0.6",
+    "js-beautify": "^1.5.5",
+    "progress": "^1.1.8",
+    "require-absolute": "^1.0.1",
+    "safe-json-stringify": "^1.0.3",
+    "underscore": "^1.8.3"
+  }
+}
