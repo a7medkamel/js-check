@@ -39,7 +39,6 @@ var file_lookup = {
 };
 
 function glob_arr(arr, options, cb) {
-  console.log(arr, options);
   Promise
     .resolve(arr)
     .map(function(i){
@@ -70,7 +69,6 @@ var results = {
 
 function parse(rules, options) {
   var time = process.hrtime();
-
 
   // check \u2713
   // xmark \u2717
