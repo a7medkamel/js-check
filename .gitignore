@@ -29,3 +29,6 @@ node_modules
 # Local config file
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 config/local.json
+
+# result
+*-log.csv
