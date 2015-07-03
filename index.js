@@ -4,6 +4,7 @@ var Promise           = require('bluebird')
   , _                 = require('underscore')
   , acorn             = require('acorn')
   , chai              = require('chai')
+  , chalk             = require('chalk')
   , path              = require('path')
   , walk              = require('./node_modules/acorn/dist/walk')
   , config            = require('config')
@@ -54,6 +55,7 @@ function parse(rules, options) {
                                       return Promise
                                               .resolve(rules)
                                               .each(function(rule){
+                                                  var rule_options = _.findWhere(config.get('settings'), { area : rule.area, name : rule.name });
                                                   return Promise
                                                       .try(function(){
                                                         var res = rule.find(ast, walk);
@@ -96,7 +98,7 @@ function parse(rules, options) {
                                                                 .each(function(i){
                                                                   return Promise
                                                                           .try(function(){
-                                                                            return rule.check(i);
+                                                                            return rule.check(i, rule_options);
                                                                           })
                                                                           .then(function(err){
                                                                             if (_.isArray(err)) {

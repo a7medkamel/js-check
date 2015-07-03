@@ -8,5 +8,6 @@
   ],
   "rules" 	: [
   	"rules/**/*.js"
-  ]
+  ],
+  "settings"   : {}
 }

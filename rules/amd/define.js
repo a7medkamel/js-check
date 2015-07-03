@@ -39,6 +39,7 @@ function check(node) {
 }
 
 module.exports = {
+  type      : 'js',
   area      : 'RequireJS',
   name      : 'define',
   fix       : 'module doesn\'t have a handling function',

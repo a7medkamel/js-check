@@ -24,7 +24,7 @@ function find(root, walk) {
     return ret;
 }
 
-function check(node) {
+function check(node, options) {
   var globals = [
                     'window'
                   , 'Error'
@@ -56,22 +56,49 @@ function check(node) {
                   , 'Array'
                   , 'prompt'
                   , 'confirm'
-                  // , 'console'
-                  // bingads defined globals
-                  , 'require'
-                  , 'define'
-                  , 'jQuery_legacy'
                 ]
-    , warning = [
-                  // bingads defined globals
-                  , 'osd'
-                  , 'microsoft'
-                  , 'performance'
-                  , 'location'
-                ]
+    , warning = []
     , scopes  = []
     ;
-  
+
+  _.each(options.config.global, function(value, key){
+    var op    = '$set'
+      , data  = value
+      ;
+
+    switch(key) {
+      case '$set': 
+      case '$push': 
+        op = key;
+        data = value;
+      break;
+    }
+
+    var type  = _.keys(data)[0]
+      , set   = _.values(data)[0]
+      ;
+
+    if (op === '$set') {
+      if (type === 'ok') {
+        globals = set;
+      }
+
+      if (type === 'warn') {
+        warning = set;
+      }
+    }
+
+    if (op === '$push') {
+      if (type === 'ok') {
+        globals.push.apply(globals, set);
+      }
+
+      if (type === 'warn') {
+        warning.push.apply(globals, set);
+      }
+    }
+  });
+
   function upsert_scope(state) {
     var node  = _.last(state)
       , scope = _.findWhere(scopes, { node : node })
@@ -190,7 +217,8 @@ function check(node) {
 }
 
 module.exports = {
-  area      : 'RequireJS',
+  type      : 'js',
+  area      : 'Core',
   name      : 'scope',
   fix       : 'add missing dependencies',
   qualifier : '?',

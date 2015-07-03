@@ -1,12 +1,12 @@
 {
-  "name": "js-parse",
+  "name": "js-check",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "akamel",
+  "author": "a7medkamel",
   "license": "ISC",
   "dependencies": {
     "acorn": "^1.1.0",
@@ -17,10 +17,11 @@
     "cli-table": "^0.3.1",
     "config": "^1.14.0",
     "fast-csv": "^0.6.0",
+    "fs-extended": "^0.2.0",
     "glob": "^5.0.6",
     "js-beautify": "^1.5.5",
     "progress": "^1.1.8",
-    "require-absolute": "^1.0.1",
+    "proxyquire": "^1.5.0",
     "safe-json-stringify": "^1.0.3",
     "underscore": "^1.8.3"
   }
